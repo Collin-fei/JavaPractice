@@ -1,2 +1,2 @@
 # JavaPractice
-一些简单的Java练习
+学习Java核心技术卷1的一些练习
