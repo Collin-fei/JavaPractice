@@ -1,8 +1,8 @@
 package Chapter4;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Random;
 
 /**
  * Created by Administrator on 2020/9/10.
@@ -30,7 +30,7 @@ public class Employee {
 
     public void setId() {
         this.id = nextId;
-        ++nextId;
+
     }
 
     public void setName(String name) {
@@ -41,9 +41,7 @@ public class Employee {
         this.salary = salary;
     }
 
-    public void setHireDay(String hireDay) {
-        this.hireDay = hireDay;
-    }
+
 
     public static int getNextId() {
         return nextId;
@@ -66,13 +64,17 @@ public class Employee {
         return hireDay;
     }
 
+
     public static void main(String[] args) {
         Employee [] staff = new Employee[3];
+
         staff[0] = new Employee("xiaoming",1000,2020,1,1);
         staff[1] = new Employee("xiaohong",2000,2020,1,2);
         staff[2] = new Employee("xiaogei",3000,2020,1,3);
         for (Employee e:staff
              ) {
+            Random random = new Random();
+            nextId = random.nextInt(100);
             e.setId();
             System.out.println("name = "+e.getName()+" id = "+ e.getId() + " salary = " + e.getSalary()+" hireDay = " + e.getHireDay()
                     );
