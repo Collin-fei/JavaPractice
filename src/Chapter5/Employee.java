@@ -15,6 +15,7 @@ public class Employee {
     private String hireDay;
     private int id;
     private static int nextId = 1;
+    private String position;
 
     public Employee(String n , double s, int year, int month, int day){
         name = n;
@@ -23,6 +24,7 @@ public class Employee {
         //日期格式化
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         hireDay = formatter.format(calendar.getTime());
+        position = "员工";
     }
 
 
@@ -43,7 +45,13 @@ public class Employee {
         this.salary = salary;
     }
 
+    public String getPosition() {
+        return position;
+    }
 
+    public void setPosition(String position) {
+        this.position = position;
+    }
 
     public static int getNextId() {
         return nextId;
@@ -67,21 +75,7 @@ public class Employee {
     }
 
 
-    public static void main(String[] args) {
-        Employee[] staff = new Employee[3];
-
-        staff[0] = new Employee("xiaoming",1000,2020,1,1);
-        staff[1] = new Employee("xiaohong",2000,2020,1,2);
-        staff[2] = new Employee("xiaogei",3000,2020,1,3);
-        for (Employee e:staff
-             ) {
-            Random random = new Random();
-            nextId = random.nextInt(100);
-            e.setId();
-            System.out.println("name = "+e.getName()+" id = "+ e.getId() + " salary = " + e.getSalary()+" hireDay = " + e.getHireDay()
-                    );
-        }
 
 
-    }
+
 }

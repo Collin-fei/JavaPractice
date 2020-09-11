@@ -1,5 +1,7 @@
 package Chapter5;
 
+import java.util.Random;
+
 /**
  * 继承
  * @author Administrator
@@ -11,6 +13,7 @@ public class Manager extends Employee {
 
     public Manager(String n, double s, int year, int month, int day) {
         super(n, s, year, month, day);
+        this.setPosition("经理");
         bonus = 0;
     }
     public double getBonus() {
@@ -28,8 +31,19 @@ public class Manager extends Employee {
     }
 
     public static void main(String[] args) {
+        Employee [] staff =new Employee[3];
         Manager manager = new Manager("xiaobai",5000,2020,2,3);
         manager.setBonus(500);
-        System.out.println("name = "+manager.getName()+" id = "+ manager.getId() + " salary = " + manager.getSalary()+" hireDay = " + manager.getHireDay()+" bonus=" + manager.getBonus());
+
+        staff[0] = manager;
+        staff[1] = new Employee("xiaohong",2000,2020,1,2);
+        staff[2] = new Employee("xiaogei",3000,2020,1,3);
+
+        for (Employee e:staff
+             ) {
+
+            System.out.println("name = "+e.getName()+" id = "+ e.getId() + " salary = " + e.getSalary()+" hireDay = " + e.getHireDay()+" position = "+e.getPosition());
+        }
+
     }
 }
